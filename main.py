@@ -34,19 +34,6 @@ def save_urls_to_file(urls, filename):
             file.write(url + "\n")
 
 
-# def main():
-#     """Main function to extract and save URLs from specified websites."""
-#     websites = [
-#         'https://jd-claude.com.ng'
-#     ]
-
-#     for website in websites:
-#         urls = extract_urls(website)
-#         if urls:
-#             filename = f'{website.replace("https://", "").replace("http://", "").replace("/", "_")}_urls.txt'
-#             save_urls_to_file(urls, filename)
-#             print(f"URLs from {website} have been saved to {filename}")
-
 def main():
     """Main function to extract and render URLs from specified websites."""
     st.markdown(
@@ -72,7 +59,7 @@ def main():
         unsafe_allow_html=True
     )
 
-    st.title("exBot")
+    st.title("streamBot")
     st.header("Extract URLS from websites")
 
     url = st.text_input("Enter the website URL", "")
