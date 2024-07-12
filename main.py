@@ -12,6 +12,9 @@ import streamlit as st
 
 def extract_urls(base_url, timeout=10):
     """Extract URLs from a given base URL."""
+    if not base_url.startswith(('http://', 'https://')):
+        base_url = 'https://' + base_url
+
     try:
         response = requests.get(base_url, timeout=timeout)
         response.raise_for_status()
@@ -54,6 +57,19 @@ def main():
             background-color: #1b263b;
             color: #ffffff
         }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #1b263b;
+            color: #ffffff;
+            padding: 10px 10px;
+        }
+        .css-1aumxhk {
+            padding-bottom: 50px;
+        }
         </style>
         """,
         unsafe_allow_html=True
@@ -74,7 +90,7 @@ def main():
                 st.write("### No URLs found for this website")
         else:
             st.error("Olease inout a valid URL")
-    st.markdown("<footer>© 2024 Emmanuel Ojighoro. All rights reserved</footer>", unsafe_allow_html=True)
+    st.markdown("<footer>© 2024 <a href='https://ojigs.netlify.app' target='_blank'>Emmanuel Ojighoro</a></footer>", unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
