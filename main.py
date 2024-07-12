@@ -59,7 +59,7 @@ def main():
         unsafe_allow_html=True
     )
 
-    st.title("streamBot")
+    st.title("streemBot")
     st.header("Extract URLS from websites")
 
     url = st.text_input("Enter the website URL", "")
@@ -68,7 +68,7 @@ def main():
             urls = extract_urls(url)
             if urls:
                 st.write("### Extracted URLs:")
-                for extracted_urls in url:
+                for extracted_urls in urls:
                     st.write(f" - {extracted_urls}")
             else:
                 st.write("### No URLs found for this website")
